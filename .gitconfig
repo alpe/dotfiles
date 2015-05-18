@@ -94,7 +94,7 @@
   svnl = svn log --oneline --show-commit
 
   # helpful http://blog.blindgaenger.net/advanced_git_aliases.html
-  this = !git init && git add . && git commit -m \"initial commit\"
+  this = !git init && git add . && git commit -m \"Initial commit\"
   amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
   r  = !git ls-files -z --deleted | xargs -0 git rm
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\=> \\2/' | sort
