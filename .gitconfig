@@ -140,7 +140,7 @@
   enabled = true
 [user]
 	name = Alex Peters
-	email = alpe@users.noreply.github.com
+  email = ap@optiopay.com
 [web]
 	browser = ch
 [browser "ch"]
