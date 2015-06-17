@@ -66,7 +66,7 @@
   rs = rebase --skip                # skip rebase
 
   # remote
-  r = remote -v                     # show remotes (verbose)
+  #r = remote -v                     # show remotes (verbose)
 
   # reset
   unstage = reset HEAD              # remove files from index (tracking)
@@ -106,6 +106,7 @@
   open = !git url | awk '{ print \"open \"  $1 }' | bash
   zip = !git archive HEAD --format=zip > archive.zip
   hash = !git rev-parse HEAD
+  df= !git diff --stat
 [format]
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 [mergetool]
