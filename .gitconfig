@@ -104,6 +104,7 @@
 
  # my
   open = !git url | awk '{ print \"open \"  $1 }' | bash
+  jenkins = !git config --get remote.origin.url | sed -E "s/.+:optiopay\\(.+\\)\\.git$/https:\\\\/\\\\/jenkins\\\\.optiopay\\\\.com\\\\/view\\\\/Staging\\\\/job\\\\/\\\\1/g" | awk '{ print \"open \"  $1 }' | bash
   zip = !git archive HEAD --format=zip > archive.zip
   hash = !git rev-parse HEAD
   df= !git diff --stat
