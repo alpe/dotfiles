@@ -66,7 +66,7 @@
   rs = rebase --skip                # skip rebase
 
   # remote
-  #r = remote -v                     # show remotes (verbose)
+  r = remote -v                     # show remotes (verbose)
 
   # reset
   unstage = reset HEAD              # remove files from index (tracking)
@@ -145,7 +145,7 @@
   enabled = true
 [user]
 	name = Alex Peters
-  email = ap@optiopay.com
+	email = alpe@users.noreply.github.com
 [web]
 	browser = ch
 [browser "ch"]
