@@ -101,6 +101,8 @@
 
   # http://felixge.de/2013/08/08/vim-trick-open-current-line-on-github.html
   url =!git config --get remote.origin.url | sed -E "s/.+:\\(.+\\)\\.git$/https:\\\\/\\\\/github\\\\.com\\\\/\\\\1/g"
+  # https://github.com/barnardb/dotfiles/blob/master/contents/.gitconfig 
+  push-no-hook = !"pushNoHook() { if [ -e .git/hooks/pre-push ]; then mv .git/hooks/pre-push .git/hooks/pre-push-disabled-by-alias && { git push \"$@\"; mv .git/hooks/pre-push-disabled-by-alias .git/hooks/pre-push; } else git push \"$@\"; fi; }; pushNoHook"
 
  # my
   open = !git url | awk '{ print \"open \"  $1 }' | bash
