@@ -106,10 +106,11 @@
 
  # my
   open = !git url | awk '{ print \"open \"  $1 }' | bash
-  jenkins = !git config --get remote.origin.url | sed -E "s/.+:optiopay\\(.+\\)\\.git$/https:\\\\/\\\\/jenkins\\\\.optiopay\\\\.com\\\\/view\\\\/Staging\\\\/job\\\\/\\\\1/g" | awk '{ print \"open \"  $1 }' | bash
+  jenkins = !git config --get remote.origin.url | sed -E "s/.+:alpe\\(.+\\)\\.git$/https:\\\\/\\\\/ci\\\\.alpe1\\\\.com\\\\/view\\\\/Staging\\\\/job\\\\/\\\\1/g" | awk '{ print \"open \"  $1 }' | bash
   zip = !git archive HEAD --format=zip > archive.zip
   hash = !git rev-parse HEAD
   df= !git diff --stat
+  travis = !git config --get remote.origin.url | sed -E "s/.+:alpe\\(.+\\)\\.git$/https:\\\\/\\\\/travis-ci\\\\.org\\\\1/g" | awk '{ print \"open \"  $1 }' | bash
 [format]
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 [mergetool]
@@ -145,7 +146,7 @@
   enabled = true
 [user]
 	name = Alex Peters
-	email = alpe@users.noreply.github.com
+        email = alpe@users.noreply.github.com
 [web]
 	browser = ch
 [browser "ch"]
