@@ -55,6 +55,10 @@ Session.vim
 #########
 target/
 
+# Go glide
+#########
+.glide/
+
 # temp files #
 #########
 temp/
@@ -75,6 +79,7 @@ octave-workspace/
 *.log
 #*.sql
 *.sqlite
+*-junit.xml
 
 # OS generated files #
 ######################
