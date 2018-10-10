@@ -58,6 +58,7 @@ target/
 # Go glide
 #########
 .glide/
+buildreport/
 
 # temp files #
 #########
@@ -80,6 +81,8 @@ octave-workspace/
 #*.sql
 *.sqlite
 *-junit.xml
+*.tfstate
+*.tfstate.backup
 
 # OS generated files #
 ######################

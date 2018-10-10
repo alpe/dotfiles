@@ -146,7 +146,8 @@
   enabled = true
 [user]
 	name = Alex Peters
-        email = alpe@users.noreply.github.com
+  email = alpe@users.noreply.github.com
+	signingkey = A1C1ECC57FA39EC4A5514DA4BD28388D49EE708D
 [web]
 	browser = ch
 [browser "ch"]
@@ -159,3 +160,7 @@
 	trustExitCode = true
 [init]
 	templatedir = ~/.git-templates
+[gpg]
+	program = gpg
+[commit]
+	gpgsign = true
