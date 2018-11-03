@@ -106,6 +106,7 @@
 
  # my
   open = !git url | awk '{ print \"open \"  $1 }' | bash
+  pr = !git url | awk '{ print \"open \"  $1 \"/pull/new/fix_tm_upgrade\" }' | bash
   jenkins = !git config --get remote.origin.url | sed -E "s/.+:alpe\\(.+\\)\\.git$/https:\\\\/\\\\/ci\\\\.alpe1\\\\.com\\\\/view\\\\/Staging\\\\/job\\\\/\\\\1/g" | awk '{ print \"open \"  $1 }' | bash
   zip = !git archive HEAD --format=zip > archive.zip
   hash = !git rev-parse HEAD
