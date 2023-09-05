@@ -93,3 +93,6 @@ octave-workspace/
 .Trashes
 Icon?
 ehthumbs.db
+
+## credentials
+.netrc
