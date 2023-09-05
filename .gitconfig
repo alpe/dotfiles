@@ -150,7 +150,7 @@
 [user]
 	name = Alex Peters
   email = alpe@users.noreply.github.com
-	signingkey = B7B0AA1E926A6BC0036ACBD255CCC24B5703B7D6
+	signingkey = 8857F1AF4A9ECC4A0F1A396652E47A1C1FE6CFF3
 [web]
 	browser = ch
 [browser "ch"]
