@@ -113,6 +113,7 @@
   df= !git diff --stat
   travis = !git config --get remote.origin.url | sed -E "s/.+:alpe\\(.+\\)\\.git$/https:\\\\/\\\\/travis-ci\\\\.org\\\\1/g" | awk '{ print \"open \"  $1 }' | bash
   cpull = !"checkoutPR() { git fetch origin pull/$1/head:$1 ; git checkout $1; }; checkoutPR"
+	staash = stash --all
 [format]
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 [mergetool]
@@ -128,6 +129,7 @@
   whitespace = nowarn
 [branch]
   autosetupmerge = true
+	sort = -committerdate
 [push]
   # 'git push' will push the current branch to its tracking branch
   # the usual default is to push all branches
@@ -170,10 +172,7 @@
 	gpgsign = true
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[column]
+	ui = auto
