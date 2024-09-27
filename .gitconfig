@@ -114,6 +114,8 @@
   travis = !git config --get remote.origin.url | sed -E "s/.+:alpe\\(.+\\)\\.git$/https:\\\\/\\\\/travis-ci\\\\.org\\\\1/g" | awk '{ print \"open \"  $1 }' | bash
   cpull = !"checkoutPR() { git fetch origin pull/$1/head:$1 ; git checkout $1; }; checkoutPR"
 	staash = stash --all
+  # unsafe repair for "fatal: bad tree object". https://stackoverflow.com/questions/36876512/how-can-i-fix-a-git-error-broken-link-from-tree-to-tree/69639136#69639136
+  repair = !git stash clear && git reflog expire --expire-unreachable=now --all && git gc --aggressive --prune=now
 [format]
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 [mergetool]
@@ -124,7 +126,8 @@
 [merge]
   summary = true
   verbosity = 1
-	tool = kdiff3
+  tool = kdiff3
+	commit = no
 [apply]
   whitespace = nowarn
 [branch]
@@ -148,7 +151,7 @@
 [rerere]
   # Remember my merges
   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
-  enabled = true
+	enabled = true
 [user]
 	name = Alex Peters
   email = alpe@users.noreply.github.com

@@ -27,6 +27,7 @@ Session.vim
 *.iml
 **/*.iml
 .idea/
+.run/
 
 # Compiled source #
 ###################
