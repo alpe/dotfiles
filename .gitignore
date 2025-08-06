@@ -97,3 +97,7 @@ ehthumbs.db
 
 ## credentials
 .netrc
+## AI
+.claude/
+.junie/
+/GUIDELINES.md
