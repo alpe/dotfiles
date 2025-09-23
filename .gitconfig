@@ -107,6 +107,7 @@
  # my
   open = !git url | awk '{ print \"open \"  $1 }' | bash
   pr = !git url | awk '{ print \"open \"  $1 \"/pull/new/$(git branch --show-current)\" }' | bash
+
   jenkins = !git config --get remote.origin.url | sed -E "s/.+:alpe\\(.+\\)\\.git$/https:\\\\/\\\\/ci\\\\.alpe1\\\\.com\\\\/view\\\\/Staging\\\\/job\\\\/\\\\1/g" | awk '{ print \"open \"  $1 }' | bash
   zip = !git archive HEAD --format=zip > archive.zip
   hash = !git rev-parse HEAD
@@ -116,6 +117,7 @@
 	staash = stash --all
   # unsafe repair for "fatal: bad tree object". https://stackoverflow.com/questions/36876512/how-can-i-fix-a-git-error-broken-link-from-tree-to-tree/69639136#69639136
   repair = !git stash clear && git reflog expire --expire-unreachable=now --all && git gc --aggressive --prune=now
+  my = !git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short)' refs/heads/alex/
 [format]
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 [mergetool]
@@ -167,7 +169,7 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [init]
-	templatedir = ~/.git-templates
+	templateDir = ~/.git-templates
 	defaultBranch = main
 [gpg]
 	program = gpg
