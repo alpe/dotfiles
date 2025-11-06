@@ -73,6 +73,8 @@
   uncommit = reset --soft HEAD^     # go back before last commit, with files in uncommitted state
   filelog = log -u                  # show changes to a file
   mt = mergetool                    # fire up the merge tool
+  zap = "!git reset --hard HEAD; git clean -df"
+
 
   # stash
   ss = stash                        # stash changes
@@ -108,11 +110,9 @@
   open = !git url | awk '{ print \"open \"  $1 }' | bash
   pr = !git url | awk '{ print \"open \"  $1 \"/pull/new/$(git branch --show-current)\" }' | bash
 
-  jenkins = !git config --get remote.origin.url | sed -E "s/.+:alpe\\(.+\\)\\.git$/https:\\\\/\\\\/ci\\\\.alpe1\\\\.com\\\\/view\\\\/Staging\\\\/job\\\\/\\\\1/g" | awk '{ print \"open \"  $1 }' | bash
   zip = !git archive HEAD --format=zip > archive.zip
   hash = !git rev-parse HEAD
   df= !git diff --stat
-  travis = !git config --get remote.origin.url | sed -E "s/.+:alpe\\(.+\\)\\.git$/https:\\\\/\\\\/travis-ci\\\\.org\\\\1/g" | awk '{ print \"open \"  $1 }' | bash
   cpull = !"checkoutPR() { git fetch origin pull/$1/head:$1 ; git checkout $1; }; checkoutPR"
 	staash = stash --all
   # unsafe repair for "fatal: bad tree object". https://stackoverflow.com/questions/36876512/how-can-i-fix-a-git-error-broken-link-from-tree-to-tree/69639136#69639136
